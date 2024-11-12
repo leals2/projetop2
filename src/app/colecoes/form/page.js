@@ -8,7 +8,6 @@ import { Button, Col, Form, Row } from "react-bootstrap";
 import { FaArrowLeft, FaCheck } from "react-icons/fa";
 import { v4 } from "uuid";
 import * as Yup from "yup";
-import InputMask from "react-input-mask"; // Importando o InputMask
 
 export default function ColecaoFormPage(props) {
   const router = useRouter();
@@ -149,21 +148,19 @@ export default function ColecaoFormPage(props) {
                 </Form.Group>
               </Row>
 
-              {/* Preço - Aplicando máscara de moeda */}
+              {/* Preço */}
               <Row className="mb-2">
                 <Form.Group as={Col}>
                   <Form.Label>Preço:</Form.Label>
-                  <InputMask
-                    mask="R$ 999.999,99"
+                  <Form.Control
                     name="preco"
+                    type="number"
                     value={values.preco}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     isValid={touched.preco && !errors.preco}
                     isInvalid={touched.preco && errors.preco}
-                  >
-                    {(inputProps) => <Form.Control {...inputProps} />}
-                  </InputMask>
+                  />
                   <Form.Control.Feedback type="invalid">
                     {errors.preco}
                   </Form.Control.Feedback>
@@ -218,21 +215,19 @@ export default function ColecaoFormPage(props) {
                 </Form.Group>
               </Row>
 
-              {/* Data de Lançamento - Aplicando máscara de data */}
+              {/* Data de Lançamento */}
               <Row className="mb-2">
                 <Form.Group as={Col}>
                   <Form.Label>Data de Lançamento:</Form.Label>
-                  <InputMask
-                    mask="99/99/9999"
+                  <Form.Control
                     name="dataLancamento"
+                    type="date"
                     value={values.dataLancamento}
                     onChange={handleChange}
                     onBlur={handleBlur}
                     isValid={touched.dataLancamento && !errors.dataLancamento}
                     isInvalid={touched.dataLancamento && errors.dataLancamento}
-                  >
-                    {(inputProps) => <Form.Control {...inputProps} />}
-                  </InputMask>
+                  />
                   <Form.Control.Feedback type="invalid">
                     {errors.dataLancamento}
                   </Form.Control.Feedback>

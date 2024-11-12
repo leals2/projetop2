@@ -12,7 +12,7 @@ export default function TamanhosPage() {
   useEffect(() => {
     // Busca a lista do localStorage, se não existir, inicia uma vazia
     const tamanhosLocalStorage =
-      JSON.parse(localStorage.getItem("tamanhos")) || [];
+      JSON.parse(localStorage.getItem("tamanhosRoupas")) || [];
     // Guarda a lista no estado de tamanhos
     setTamanhos(tamanhosLocalStorage);
     console.log(tamanhosLocalStorage);
@@ -25,7 +25,7 @@ export default function TamanhosPage() {
       // Filtra a lista antiga removendo o produto recebido
       const novaLista = tamanhos.filter((item) => item.id !== produto.id);
       // Grava no localStorage a nova lista
-      localStorage.setItem("tamanhos", JSON.stringify(novaLista));
+      localStorage.setItem("tamanhosRoupas", JSON.stringify(novaLista));
       // Grava a nova lista no estado para renderizar na tela
       setTamanhos(novaLista);
       alert("Produto excluído com sucesso!");
@@ -45,9 +45,9 @@ export default function TamanhosPage() {
         <thead>
           <tr>
             <th>Nome</th>
-            <th>Categoria</th>
+            <th>Descrição</th>
             <th>Tamanho</th>
-            <th>Preço</th>
+            <th>Data de Lançamento</th>
             <th>Estoque</th>
             <th>Disponibilidade</th>
             <th>Ações</th>
@@ -57,9 +57,9 @@ export default function TamanhosPage() {
           {tamanhos.map((produto) => (
             <tr key={produto.id}>
               <td>{produto.nome}</td>
-              <td>{produto.categoria}</td>
+              <td>{produto.descricao}</td>
               <td>{produto.tamanho}</td>
-              <td>{produto.preco}</td>
+              <td>{produto.dataLancamento}</td>
               <td>{produto.estoque}</td>
               <td>{produto.disponibilidade ? "Disponível" : "Indisponível"}</td>
               <td className="text-center">

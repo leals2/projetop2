@@ -3,7 +3,7 @@
 import Pagina from "@/components/Pagina";
 import { Formik } from "formik";
 import { useRouter } from "next/navigation";
-import { Button, Col, Form, Row } from "react-bootstrap";
+import { Button, Col, Form, Row, Carousel } from "react-bootstrap";
 import { FaArrowLeft, FaCheck } from "react-icons/fa";
 import { v4 } from "uuid";
 import * as Yup from "yup";
@@ -87,6 +87,34 @@ export default function NovidadeFormPage(props) {
 
   return (
     <Pagina titulo={"Cadastro de novidades"}>
+            {/* Carrossel de imagens */}
+            <Carousel>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://semprelindaloja.com.br/wp-content/uploads/2023/02/semprelindaloja_com_br-vestido-longo-laura-verde-jade-copia.jpg"
+            alt="Imagem 1"
+            style={{ objectFit: "cover", height: "430px" }} // Garantir que as imagens fiquem do mesmo tamanho
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://down-br.img.susercontent.com/file/sg-11134201-22110-9iu5mw5le1jv96"
+            alt="Imagem 2"
+            style={{ objectFit: "cover", height: "430px" }} // Garantir que as imagens fiquem do mesmo tamanho
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://down-br.img.susercontent.com/file/br-11134201-23010-wnb4e9flx0lv88"
+            alt="Imagem 3"
+            style={{ objectFit: "cover", height: "430px" }} // Garantir que as imagens fiquem do mesmo tamanho
+          />
+        </Carousel.Item>
+      </Carousel>
+      
       {/* Formulário */}
 
       <Formik

@@ -44,7 +44,7 @@ export default function Pagina({ titulo, children }) {
               <FaRegNewspaper /> Novidades
             </Nav.Link>
             <Nav.Link
-              href="/colecoes"
+              href="/novidades"
               style={{
                 color: "#CD5C5C",
                 border: "2px solid #CD5C5C",
